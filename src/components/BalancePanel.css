@@ -1,0 +1,317 @@
+.bp {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+
+.bp-tabs {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 0 24px;
+}
+
+.bp-tab {
+  position: relative;
+  padding: 18px 20px;
+  border: none;
+  background: transparent;
+  color: #777;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.bp-tab:first-child {
+  padding-left: 0;
+}
+
+.bp-tab:hover {
+  color: #9747ff;
+}
+
+.bp-tab.is-active {
+  color: #9747ff;
+  font-weight: 600;
+}
+
+.bp-tab.is-active::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: -1px;
+  height: 2px;
+  background: #9747ff;
+}
+
+.bp-tab:first-child.is-active::after {
+  left: 0;
+}
+
+.bp-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 25px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.bp-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0 24px;
+  border-right: 1px solid #eee;
+}
+
+.bp-stat:first-child {
+  padding-left: 0;
+}
+
+.bp-stat:last-child {
+  border-right: none;
+}
+
+.bp-label {
+  color: #888;
+  font-size: 12px;
+  text-transform: lowercase;
+}
+
+.bp-stat strong {
+  color: #222;
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.bp-earned {
+  color: #9747ff !important;
+}
+
+.bp-transfer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: calc(100% - 48px);
+  margin: 22px 24px;
+  padding: 13px 18px;
+
+  border: 1px solid #9747ff;
+  border-radius: 7px;
+
+  background: #9747ff;
+  color: #fff;
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.bp-transfer:hover {
+  background: #8538ed;
+}
+
+.bp-transfer:active {
+  transform: translateY(1px);
+}
+
+.bp-section {
+  margin: 60px 0 0 0;
+  padding: 0 24px 16px;
+
+  color: #222;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+
+.bp-list {
+  border-top: 1px solid #eee;
+}
+
+.bp-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  width: 100%;
+  padding: 16px 24px;
+
+  border: none;
+  border-bottom: 1px solid #eee;
+
+  background: #fff;
+  text-align: left;
+
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.bp-item:last-child {
+  border-bottom: none;
+}
+
+.bp-item:hover {
+  background: #faf8ff;
+}
+
+.bp-img {
+  width: 65px;
+  height: 65px;
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+  border-radius: 8px;
+
+  background: #f4f4f4;
+}
+
+.bp-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  flex: 1;
+  min-width: 0;
+}
+
+.bp-title {
+  overflow: hidden;
+
+  color: #222;
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bp-price {
+  color: #222;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bp-paid {
+  color: #9747ff;
+}
+
+.bp-status {
+  color: #888;
+  font-size: 12px;
+}
+
+
+
+.bp-chev {
+  flex-shrink: 0;
+  color: #999;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.bp-item:hover .bp-chev {
+  color: #9747ff;
+  transform: translateX(2px);
+}
+
+@media (max-width: 700px) {
+  .bp-tabs {
+    padding: 0 16px;
+    overflow-x: auto;
+  }
+
+  .bp-tab {
+    padding: 16px 14px;
+    white-space: nowrap;
+    font-size: 13px;
+  }
+
+  .bp-tab:first-child {
+    padding-left: 0;
+  }
+
+  .bp-tab.is-active::after {
+    left: 14px;
+    right: 14px;
+  }
+
+  .bp-tab:first-child.is-active::after {
+    left: 0;
+  }
+
+  .bp-stats {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px 16px;
+  }
+
+  .bp-stat {
+    padding: 0 0 18px;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .bp-stat:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+
+  .bp-transfer {
+    width: calc(100% - 32px);
+    margin: 18px 16px;
+  }
+
+  .bp-section {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .bp-item {
+    padding: 14px 16px;
+  }
+
+  .bp-img {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+
+.bp-more-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding: 14px 24px 18px;
+}
+
+.bp-more {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  color: #777;
+  font: inherit;
+  font-size: 13px;
+
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.bp-more:hover {
+  color: #9747ff;
+}
+
