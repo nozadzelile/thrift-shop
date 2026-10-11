@@ -15,7 +15,6 @@ export default function Account() {
         <h1 className="account-title">My Account</h1>
         <div className="account-columns">
 
-          {/* LEFT COLUMN */}
 
           <aside className="account-left">
             {/* PROFILE */}
@@ -30,7 +29,6 @@ export default function Account() {
               </div>
             </div>
 
-            {/* PERSONAL INFORMATION */}
             
             <div className="member-since"> 
                 <span>Member since</span> 
@@ -101,8 +99,6 @@ export default function Account() {
 
           </aside>
 
-
-          {/* RIGHT COLUMN */}
 
           <section className="account-right">
             

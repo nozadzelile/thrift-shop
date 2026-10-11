@@ -1,0 +1,136 @@
+.categories-btn {
+  background: none;
+  border: none;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 0;
+}
+
+.categories-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease;
+  z-index: 90;
+}
+
+.categories-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.categories-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 360px;
+  height: 100vh;
+  background: #fff;
+  z-index: 100;
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+  padding: 28px 30px;
+  overflow-y: auto;
+}
+
+.categories-menu.open {
+  transform: translateX(0);
+}
+
+.categories-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.categories-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.close-btn {
+  border: none;
+  background: none;
+  font-size: 32px;
+  font-weight: 300;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.categories-list {
+  padding-top: 15px;
+}
+
+.category {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.category-title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 18px 0;
+  cursor: pointer;
+  font-size: 17px;
+  text-align: left;
+}
+
+.arrow {
+  font-size: 22px;
+  font-weight: 300;
+  transition: transform 0.25s ease;
+}
+
+.arrow.rotate {
+  transform: rotate(45deg);
+}
+
+.category-items {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.category-items.visible {
+  max-height: 400px;
+  padding-bottom: 12px;
+}
+
+.category-items a {
+  text-decoration: none;
+  color: #666;
+  font-size: 14px;
+  padding: 7px 0;
+  transition: color 0.2s ease;
+}
+
+.category-items a:hover {
+  color: #000;
+}
+
+.navbar-select-arrow {
+  position: absolute;
+  right: 30px;
+  width: 14px;
+  height: 14px;
+  color: #766b82;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .categories-menu {
+    width: 85%;
+    padding: 24px;
+  }
+}

@@ -7,16 +7,22 @@ export const items = [
     size: "M / IT 32 / EU 32",
     brand: "Levi's",
     category: "Jeans",
+    condition: "Very good",
+    measurements: {
+      Chest: "52 cm",
+      Length: "68 cm",
+      Sleeve: "61 cm",
+    },
     image: "https://picsum.photos/400/500?random=1",
     description: "River Island Faux Fur Coat - UK Small gorgeous coat from River Island. Brand new with tags. Cost £79. All items are thoroughly checked prior to dispatch and recorded on video during packaging and posting",
     seller: { 
       name: "Sofia", 
+      location: "Barcelona, Spain",
       image: "/src/images/profile-image.png",
       rating: 3.5,
       reviews: 24,
     },
     color: "Blue",
-    country: "Italy 🇮🇹"
   },
   {
     id: 2,
@@ -30,11 +36,11 @@ export const items = [
     description: "Warm beige coat, perfect for winter.",
     seller: { 
       name: "Maria", 
+      location: "Barcelona, Spain",
       image: "/src/images/profile-image.png",
       rating: 2.5,
       reviews: 24,
     },
-    country: "Germany 🇩🇪",
     color: "pink",
   },
   {
@@ -49,13 +55,12 @@ export const items = [
     description: "Comfortable grey hoodie, small logo.",
     seller: { 
       name: "Lola", 
+      location: "Barcelona, Spain",
       image: "/src/images/profile-image.png",
       rating: 3.5,
       reviews: 24, 
     },
     color: "green",
-    counry: "Mexico 🇲🇽"
-
   },
   {
     id: 4,
@@ -69,6 +74,7 @@ export const items = [
     description: "Light floral dress, worn twice.",
     seller: { 
       name: "Max", 
+      location: "Barcelona, Spain",
       image: "/src/images/profile-image.png",
       rating: 3,
       reviews: 24, 
@@ -86,6 +92,7 @@ export const items = [
     description: "Light floral dress, worn twice.",
     seller: { 
       name: "George", 
+      location: "Barcelona, Spain",
       image: "/src/images/profile-image.png",
       rating: 4,
       reviews: 24, 
@@ -103,6 +110,7 @@ export const items = [
     description: "Light floral dress, worn twice.",
     seller: { 
       name: "Sofia", 
+      location: "Barcelona, Spain",
       image: "/src/images/profile-image.png",
       rating: 5,
       reviews: 24,
@@ -120,6 +128,7 @@ export const items = [
     description: "Light floral dress, worn twice.",
     seller: { 
       name: "Sofia", 
+      location: "Barcelona, Spain",
       image: "/src/images/profile-image.png",
       rating: 4.5,
       reviews: 24,
@@ -137,7 +146,7 @@ export const items = [
     image: "https://picsum.photos/400/500?random=4",
     description: "Light floral dress, worn twice.",
     seller: { 
-      name: "Sofia", 
+      name: "Sofia",
       image: "/src/images/profile-image.png",
       rating: 3.5,
       reviews: 24,

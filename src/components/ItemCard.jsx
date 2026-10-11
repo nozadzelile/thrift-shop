@@ -35,14 +35,24 @@ export default function ItemCard({ item }) {
       </div>
       <p className="item-title">{item.title}</p>
       <p className="item-meta">{item.size}</p>
-      <div className="seller">
+      
+      <div className="seller flex items-center gap-3">
         <img
-          src={item.seller.image}
-          alt={item.seller.name}
-          className="profile-pic"
-        />
-        <span>{item.seller.name}</span>
-      </div>
+        src={item.seller.image}
+        alt={item.seller.name}
+        className="item-card-seller-image"
+       />
+
+      <div className="flex min-w-0 flex-col">
+       <span className="truncate text-sm font-medium text-gray-800">
+        {item.seller.name}
+      </span>
+
+      <span className="truncate text-xs text-gray-500">
+       {item.seller.location}
+      </span>
+    </div>
+  </div>
     </Link>
   )
 }
