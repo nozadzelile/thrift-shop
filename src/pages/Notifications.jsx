@@ -93,7 +93,6 @@ export default function Notifications() {
 
   return (
     <main className="mx-auto min-h-screen max-w-3xl px-5 py-10 sm:px-8">
-      {/* Header */}
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
         <div>
           <div className="mb-2 flex items-center gap-3">

@@ -1,11 +1,27 @@
-import { Link } from 'react-router-dom'
-import { Heart, Bell } from 'lucide-react'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { Heart, Bell, UserRound, Plus, Search } from 'lucide-react'
 import { useAuth } from '../context/AuthContext'
 import CategoriesMenu from './CategoriesMenu'
 import NavbarDropdown from './NavbarDropDown'
 
 export default function Navbar() {
   const { user, signOut } = useAuth()
+
+  const [searchQuery, setSearchQuery] = useState('')
+  const navigate = useNavigate()
+  
+  const handleSearch = (e) => {
+    e.preventDefault()
+
+  const query = searchQuery.trim()
+
+  if (query) {
+    navigate(`/search?q=${encodeURIComponent(query)}`)
+  } else {
+    navigate('/search')
+  }
+}
 
   return (
     <header className="sticky top-0 z-10 border-b border-gray-200 bg-white">
@@ -16,21 +32,27 @@ export default function Navbar() {
     Vuvuli
   </Link>
 
+  <form
+  onSubmit={handleSearch}
+  className="flex min-w-0 flex-1 items-center"
+>
+  <input
+    type="search"
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+    placeholder="Search for anything..."
+    className="h-10 min-w-0 flex-1 rounded-l-md border border-gray-300 px-4 text-sm outline-none focus:border-[#9747FF]"
+  />
 
-  <div className="navbar-search">
-    <input
-      type="text"
-      placeholder="Search for items..."
-      className="min-w-0 flex-1 rounded-sm border border-gray-300 px-3 py-2 text-sm focus:border-purple-500 focus:outline-none"
-    />
-
-    <button
-      type="button"
-      className="shrink-0 rounded bg-[#9747FF] px-5 py-2.5 text-sm text-white hover:bg-[#8135e6]"
-    >
-      Search
-    </button>
-  </div>
+  <button
+    type="submit"
+    aria-label="Search"
+    className="flex h-10 items-center justify-center gap-2 rounded-r-md bg-[#9747FF] px-4 text-sm text-white transition hover:bg-[#8338ec]"
+  >
+    <Search size={18} />
+    <span className="hidden sm:inline">Search</span>
+  </button>
+</form>
 
   <div className="navbar-right">
     <div className="navbar-shortcuts">
@@ -66,24 +88,24 @@ export default function Navbar() {
       />
     </div>
 
-    {user ? (
-      <div className="account-menu">
-        <Link to="/account" className="account-button">
-          {user.name}
-        </Link>
-        <button
-          type="button"
-          className="account-menu-signout"
-          onClick={signOut}
-        >
-          Sign out
-        </button>
-      </div>
-    ) : (
-      <Link to="/login" className="account-button">
-        Sign in
-      </Link>
-    )}
+
+     {user ? (
+       <Link
+         to="/account"
+         title="My account"
+         aria-label="My account"
+         className="flex h-10 w-10 mr-7 items-center justify-center border rounded-full border-gray-200 text-gray-700 transition hover:border-[#9747FF] hover:bg-purple-50 hover:text-[#9747FF]"
+       >
+        <UserRound size={21} />
+       </Link>
+     ) : (
+       <Link
+         to="/login"
+         className="rounded-lg bg-[#9747FF] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#8338e8]"
+       >
+         Sign in
+       </Link>
+     )}
   </div>
 </div>
 

@@ -89,22 +89,22 @@ export default function ItemDetail() {
         <img
           src={item.image}
           alt={item.title}
-          className="detail-image"
+          className="aspect-[4/5] w-full rounded-lg object-cover"
         />
         <div className="flex flex-col">
           <div className="grid grid-cols-1 gap-5 md:grid-cols-[60%_40%] md:divide-x md:divide-[#e5e5e5]">            
             <div className="detail-info">
           <h1 className='text-[30px]'>{item.title}</h1>
 
-          <p className="detail-price">
+          <p className="my-[2px] mt-2 text-[28px] font-bold">
             €{item.price.toFixed(2)}
           </p>
 
-          <p className="payment-note detail-payment-note">
+          <p className="payment-note mb-4 flex items-center gap-[5px]">
             <img
               src={transportIcon}
               alt=""
-              className="transport-icon"
+              className="h-[18px] w-[18px] shrink-0 object-contain"
             />
             You will pay 6.10 €
           </p>
@@ -141,7 +141,13 @@ export default function ItemDetail() {
              />
 
         <div className="seller-details">
-         <span>{item.seller.name}</span>
+         <Link
+         to={`/seller/${encodeURIComponent(item.seller.name)}`}
+         className="hover:text-[#9747FF]"
+         >
+          {item.seller.name}
+        </Link>
+         
         </div>
 
         <div className="seller-rating">
@@ -225,16 +231,21 @@ export default function ItemDetail() {
               </div>
             </div>
 
-      <p className="detail-description mt-4">
+      <p className="mb-[26px] border-t-2 border-[#e5e5e5] pt-[7px] leading-[1.5] mt-4">
         {item.description}
       </p>
 
-      <ul className="detail-specs">
-        <li><span>Brand</span> {item.brand}</li>
-        <li><span>Size</span> {item.size}</li>
-        <li><span>Color</span> {item.color}</li>
-        <li><span>Category</span> {item.category}</li>
-        <li><span>Condition</span> {item.condition}</li>
+      <ul className="mb-4 list-none p-0">
+        <li className="border-b border-[#eee] py-2"><span className="inline-block w-[100px] text-[#777]">
+          Brand</span> {item.brand}</li>
+        <li className="border-b border-[#eee] py-2"><span className="inline-block w-[100px] text-[#777]">
+          Size</span> {item.size}</li>
+        <li className="border-b border-[#eee] py-2"><span className="inline-block w-[100px] text-[#777]">
+          Color</span> {item.color}</li>
+        <li className="border-b border-[#eee] py-2"><span className="inline-block w-[100px] text-[#777]">
+          Category</span> {item.category}</li>
+        <li className="border-b border-[#eee] py-2"><span className="inline-block w-[100px] text-[#777]">
+          Condition</span> {item.condition}</li>
       </ul>
         <div className="detail-section">
           <h3>Measurements</h3>
@@ -274,14 +285,13 @@ export default function ItemDetail() {
                 />
 
                 <div className="seller-item-info">
+                  <p className="seller-item-price">
+                    €{sellerItem.price.toFixed(2)}
+                  </p>
                   <h3>{sellerItem.title}</h3>
 
                   <p className="seller-item-size">
                     {sellerItem.size}
-                  </p>
-
-                  <p className="seller-item-price">
-                    €{sellerItem.price.toFixed(2)}
                   </p>
                 </div>
               </Link>
@@ -379,15 +389,14 @@ export default function ItemDetail() {
                 />
 
                 <div className="pt-2.5">
+                  <p className="seller-item-price">
+                    €{similarItem.price.toFixed(2)}
+                </p>
                   <h3>{similarItem.title}</h3>
-
                   <p className="seller-item-size">
                     {similarItem.size}
                   </p>
 
-                  <p className="seller-item-price">
-                    €{similarItem.price.toFixed(2)}
-                  </p>
                 </div>
               </Link>
             ))}

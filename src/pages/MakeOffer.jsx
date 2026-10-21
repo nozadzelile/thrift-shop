@@ -36,7 +36,6 @@ export default function MakeOffer() {
   return (
     <main className="mx-auto w-full max-w-[400px] px-5 py-10">
 
-      {/* Back */}
       <button
         type="button"
         onClick={() => navigate(-1)}
@@ -45,7 +44,6 @@ export default function MakeOffer() {
         ← Back
       </button>
 
-      {/* Title */}
       <h1 className="mb-2 text-3xl font-semibold text-center">
         Make an offer
       </h1>

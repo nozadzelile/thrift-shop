@@ -23,119 +23,13 @@ body {
 .item-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 18px;
+  gap: 40px;
 }
 
 @media (min-width: 700px) {
   .item-grid {
     grid-template-columns: repeat(5, 1fr);
   }
-}
-
-.item-card {
-  text-decoration: none;
-  color: inherit;
-}
-
-.item-card img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 4px;
-  margin-bottom: 8px;
-}
-
-.item-price {
-  font-weight: 600;
-}
-
-.item-bottom {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin: 5px 0 5px 0;
-}
-
-.item-price-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.price {
-  font-size: 18px;
-  font-weight: 600;
-  color: #222;
-}
-
-.payment-note {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: rgb(151, 71, 255, 0.6);
-  font-size: 14px;
-  line-height: 1.35;
-  margin-top: 5px;
-}
-
-.item-card .transport-icon,
-.transport-icon {
-  width: 18px;
-  height: 18px;
-  flex: 0 0 16px;
-  margin: 0;
-  border-radius: 0;
-  object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(38%) sepia(96%) saturate(2218%)
-    hue-rotate(243deg) brightness(101%) contrast(101%);
-}
-
-.favorite-btn {
-  display: grid;
-  place-items: center;
-  width: 28px;
-  height: 28px;
-  background: none;
-  border: none;
-  padding: 0;
-  color: #26222b;
-  cursor: pointer;
-}
-
-.favorite-btn svg {
-  width: 21px;
-  height: 21px;
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 1.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  transition: fill 150ms ease, color 150ms ease, transform 150ms ease;
-}
-
-.favorite-btn:hover svg {
-  transform: scale(1.08);
-}
-
-.favorite-active {
-  color: #ed4956;
-}
-
-.favorite-active svg {
-  fill: currentColor;
-}
-
-.item-meta {
-  font-size: 15px;
-  color: #777;
-  margin: 7px 0 5px 0;
-}
-
-.back-link {
-  display: inline-block;
-  margin-bottom: 16px;
-  color: #555;
-  text-decoration: none;
 }
 
 .detail {
@@ -148,47 +42,6 @@ body {
   .detail {
     grid-template-columns: 1fr 1fr;
   }
-}
-
-.detail-image {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.detail-price {
-  font-size: 28px;
-  font-weight: 700;
-  margin: 8px 0 2px;
-}
-
-.detail-payment-note {
-  margin-bottom: 16px;
-}
-
-.detail-specs {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 16px;
-}
-
-.detail-specs li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
-}
-
-.detail-specs span {
-  display: inline-block;
-  width: 100px;
-  color: #777;
-}
-
-.detail-description {
-  margin-bottom: 26px;
-  line-height: 1.5;
-  border-top: 2px solid #e5e5e5;
-  padding-top: 7px;
 }
 
 .seller-items-grid {
@@ -853,146 +706,6 @@ body {
 }
 
 
-/* =========================
-   ACCOUNT PAGE
-========================= */
-
-.account-page {
-  min-height: calc(100vh - 150px);
-  padding: 40px 30px 60px;
-  background: #fafafa;
-}
-
-.account-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.account-title {
-  margin: 0 0 25px;
-  font-size: 28px;
-  font-weight: 600;
-}
-
-
-/* =========================
-   TWO COLUMNS
-========================= */
-
-.account-columns {
-  display: grid;
-  grid-template-columns: 500px 1fr;
-  gap: 25px;
-  align-items: start;
-}
-
-
-/* =========================
-   BOXES
-========================= */
-
-.account-box {
-  padding: 24px;
-  background: #fff;
-  border-radius: 4px;
-}
-
-.account-box h2 {
-  margin: 0px;
-}
-
-.account-box-title {
-  margin-bottom: 20px !important;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-
-/* =========================
-   LEFT COLUMN
-========================= */
-
-.personal-info h2 {
-  margin-bottom: 25px;
-  font-size: 19px;
-}
-
-.account-left {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.favorites-empty {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #777;
-  font-size: 14px;
-}
-
-.favorites-empty svg {
-  flex-shrink: 0;
-  color: #9747ff;
-}
-
-.personal-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 17px 0;
-  border-bottom: 1px solid #eeeeee;
-}
-
-.personal-item:first-of-type {
-  padding-top: 0;
-}
-
-.personal-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.personal-item > svg {
-  flex-shrink: 0;
-  margin-top: 2px;
-  color: #9747ff;
-}
-
-.personal-item div {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.personal-item span {
-  color: #888;
-  font-size: 12px;
-}
-
-.personal-item strong {
-  color: #222;
-  font-size: 14px;
-  font-weight: 500;
-  word-break: break-word;
-}
-
-
-/* =========================
-   RIGHT COLUMN
-========================= */
-
-.account-right {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-
-/* =========================
-   PROFILE
-========================= */
-
 .item-card-seller-image {
   width: 40px !important;
   height: 40px !important;
@@ -1055,11 +768,6 @@ body {
   background: #f7f2ff;
   text-decoration: underline;
 }
-
-
-/* =========================
-   TRANSACTIONS
-========================= */
 
 .transaction-grid {
   display: grid;

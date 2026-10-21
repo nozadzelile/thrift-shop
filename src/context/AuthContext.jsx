@@ -14,21 +14,50 @@ function readStorage(key, fallback) {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(() => readStorage('currentUser', null))
 
-  function signUp({ name, email, password }) {
-    const users = readStorage('users', [])
+  
+function signUp({ name, email, phone, password }) {
+  const users = readStorage('users', [])
 
-    if (users.some((u) => u.email === email)) {
-      return { error: 'An account with this email already exists.' }
-    }
+  const normalizedEmail = email?.trim().toLowerCase()
+  const normalizedPhone = phone?.trim()
 
-    users.push({ name, email, password })
-    localStorage.setItem('users', JSON.stringify(users))
-
-    const currentUser = { name, email }
-    localStorage.setItem('currentUser', JSON.stringify(currentUser))
-    setUser(currentUser)
-    return { error: null }
+  if (!normalizedEmail && !normalizedPhone) {
+    return { error: 'Enter an email address or phone number.' }
   }
+
+  const alreadyExists = users.some((u) =>
+    normalizedEmail
+      ? u.email?.toLowerCase() === normalizedEmail
+      : u.phone === normalizedPhone
+  )
+
+  if (alreadyExists) {
+    return {
+      error: 'An account with these details already exists.',
+    }
+  }
+
+  const newUser = {
+    name: name.trim(),
+    email: normalizedEmail || '',
+    phone: normalizedPhone || '',
+    password,
+  }
+
+  users.push(newUser)
+  localStorage.setItem('users', JSON.stringify(users))
+
+  const currentUser = {
+    name: newUser.name,
+    email: newUser.email,
+    phone: newUser.phone,
+  }
+
+  localStorage.setItem('currentUser', JSON.stringify(currentUser))
+  setUser(currentUser)
+
+  return { error: null }
+}
 
   function signIn({ email, password }) {
     const users = readStorage('users', [])
@@ -50,9 +79,9 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext.Provider value={{ user, signIn, signOut }}>
-      {children}
-    </AuthContext.Provider>
+  <AuthContext.Provider value={{ user, signUp, signIn, signOut }}>
+    {children}
+  </AuthContext.Provider>
   )
 }
 
